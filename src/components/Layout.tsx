@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { CookieBanner } from './CookieBanner';
+import { FallingLeaves } from './FallingLeaves';
 import { Footer } from './Footer';
 import { StickyContact } from './StickyContact';
 
@@ -36,6 +37,7 @@ export function Layout() {
       <Footer />
       <StickyContact productName={productName} />
       <CookieBanner />
+      <FallingLeaves />
     </>
   );
 }

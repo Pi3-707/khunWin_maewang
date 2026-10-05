@@ -163,3 +163,12 @@ img, video { max-width: 100%; display: block; }
   .reveal { animation: none !important; }
   .btn, .card, .card-media img { transition: none; }
 }
+
+/* Falling leaves: decorative, never blocks clicks, sits under the header and contact bar. */
+.leaves { position: fixed; inset: 0; pointer-events: none; z-index: 15; overflow: hidden; }
+.leaf { position: absolute; top: -40px; left: var(--x); width: var(--s); animation: leaf-fall var(--d) linear var(--delay) infinite; }
+.leaf svg { display: block; width: 100%; animation: leaf-sway calc(var(--d) / 4) ease-in-out var(--delay) infinite alternate; }
+@keyframes leaf-fall { to { transform: translateY(calc(100vh + 80px)); } }
+@keyframes leaf-sway { from { transform: translateX(-28px) rotate(-30deg); } to { transform: translateX(28px) rotate(40deg); } }
+@media (max-width: 700px) { .leaf:nth-child(n + 7) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .leaves { display: none; } }
