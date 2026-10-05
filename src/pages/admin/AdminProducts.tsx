@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactElement } from 'react';
-import { uploadPhoto } from '../../lib/image';
+import { removePhoto, uploadPhoto } from '../../lib/image';
+import { saveProduct, type SaveDeps } from '../../lib/saveProduct';
 import { fetchProducts } from '../../lib/queries';
 import { supabase } from '../../lib/supabase';
 import type { Availability, Category, ProductListItem } from '../../lib/types';
@@ -13,6 +14,30 @@ const empty: Draft = { name: '', product_code: '', category: 'ayara', descriptio
 function check(r: { error: unknown }) {
   if (r.error) throw r.error;
 }
+
+const deps: SaveDeps = {
+  async insertProduct(row) {
+    const r = await supabase.from('products').insert(row).select('id').single();
+    check(r);
+    return r.data!.id;
+  },
+  async updateProduct(id, row) {
+    check(await supabase.from('products').update(row).eq('id', id));
+  },
+  async setCover(id, url) {
+    check(await supabase.from('products').update({ cover_image_url: url }).eq('id', id));
+  },
+  upload: uploadPhoto,
+  async addImage(id, url, order) {
+    check(await supabase.from('product_images').insert({ product_id: id, url, display_order: order }));
+  },
+  async countImages(id) {
+    const c = await supabase.from('product_images').select('*', { count: 'exact', head: true }).eq('product_id', id);
+    check(c);
+    return c.count ?? 0;
+  },
+  removeUpload: removePhoto,
+};
 
 export default function AdminProducts() {
   const [products, setProducts] = useState<ProductListItem[]>([]);
@@ -36,35 +61,20 @@ export default function AdminProducts() {
     const price = d.reference_price === '' ? null : Number(d.reference_price);
     if (price !== null && !Number.isFinite(price)) { setMsg('ราคาต้องเป็นตัวเลข'); return; }
     setMsg('กำลังบันทึก…');
-    try {
-      const row = { name: d.name, product_code: d.product_code, category: d.category,
-        description: d.description || null, story_summary: d.story_summary || null,
-        reference_price: price, availability: d.availability };
-      let id = d.id;
-      if (id) {
-        check(await supabase.from('products').update(row).eq('id', id));
-      } else {
-        const r = await supabase.from('products').insert(row).select('id').single();
-        check(r);
-        id = r.data!.id;
-      }
-      if (cover) {
-        const url = await uploadPhoto(id!, cover);
-        check(await supabase.from('products').update({ cover_image_url: url }).eq('id', id!));
-      }
-      if (extra.length) {
-        const c = await supabase.from('product_images').select('*', { count: 'exact', head: true }).eq('product_id', id!);
-        check(c);
-        let order = c.count ?? 0;
-        for (const f of extra) {
-          const url = await uploadPhoto(id!, f);
-          check(await supabase.from('product_images').insert({ product_id: id, url, display_order: ++order }));
-        }
-      }
-      setMsg('บันทึกแล้ว'); setD(empty); setCover(null); setExtra([]); load();
-    } catch (err) {
-      setMsg(`บันทึกไม่สำเร็จ: ${(err as Error).message ?? 'ไม่ทราบสาเหตุ'}`);
+    const row = { name: d.name, product_code: d.product_code, category: d.category,
+      description: d.description || null, story_summary: d.story_summary || null,
+      reference_price: price, availability: d.availability };
+    const res = await saveProduct(deps, d.id, row, cover, extra);
+    // Keep the id and the unfinished files so a retry updates this product and skips finished uploads.
+    if (res.id) setD((prev) => ({ ...prev, id: res.id }));
+    if (res.coverDone) setCover(null);
+    setExtra(res.pendingExtra);
+    load();
+    if (res.error) {
+      setMsg(`บันทึกไม่สำเร็จ: ${res.error.message ?? 'ไม่ทราบสาเหตุ'} (กดบันทึกอีกครั้งเพื่อลองใหม่)`);
+      return;
     }
+    setMsg('บันทึกแล้ว'); setD(empty); setCover(null); setExtra([]);
   }
 
   const field = (label: string, el: ReactElement) => <p><label>{label}<br />{el}</label></p>;

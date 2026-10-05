@@ -43,7 +43,8 @@ main { padding-bottom: 88px; }
 .story { position: relative; overflow-x: clip; }
 .thread { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
 .thread path { fill: none; stroke: var(--charcoal); stroke-width: 2; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 0; opacity: .55; }
-.hero { position: relative; min-height: 88vh; display: grid; align-items: end; color: #fff; background: linear-gradient(160deg, var(--green), var(--brown)); overflow: hidden; }
+/* Poster sits under the video and stays when the video is skipped (reduced motion, data saver) or missing. */
+.hero { position: relative; min-height: 88vh; display: grid; align-items: end; color: #fff; background: url('/hero-poster.jpg') center / cover, linear-gradient(160deg, var(--green), var(--brown)); overflow: hidden; }
 .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.15)); }
 .hero-inner { position: relative; z-index: 2; padding: 0 16px 56px; max-width: 1100px; margin: 0 auto; width: 100%; }

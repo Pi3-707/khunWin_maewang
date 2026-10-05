@@ -12,10 +12,15 @@ async function toWebP(file: File, maxWidth = 1600): Promise<Blob> {
   );
 }
 
-export async function uploadPhoto(productId: string, file: File): Promise<string> {
+export async function uploadPhoto(productId: string, file: File): Promise<{ url: string; path: string }> {
   const blob = await toWebP(file);
   const path = `${productId}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.webp`;
   const { error } = await supabase.storage.from('product-photos').upload(path, blob, { contentType: 'image/webp' });
   if (error) throw error;
-  return supabase.storage.from('product-photos').getPublicUrl(path).data.publicUrl;
+  return { url: supabase.storage.from('product-photos').getPublicUrl(path).data.publicUrl, path };
+}
+
+export async function removePhoto(path: string): Promise<void> {
+  const { error } = await supabase.storage.from('product-photos').remove([path]);
+  if (error) throw error;
 }
