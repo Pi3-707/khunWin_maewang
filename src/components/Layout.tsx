@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { CookieBanner } from './CookieBanner';
+import { Footer } from './Footer';
 import { StickyContact } from './StickyContact';
 
 export type LayoutContext = { setProductName: (n?: string) => void };
@@ -19,6 +20,7 @@ export function Layout() {
     <>
       <header className="site-header">
         <nav>
+          <NavLink to="/" className="brand">ขุนวินแม่วาง</NavLink>
           {links.map(([to, label]) => (
             <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => (isActive ? 'active' : '')}>
               {label}
@@ -29,6 +31,7 @@ export function Layout() {
       <main>
         <Outlet context={{ setProductName } satisfies LayoutContext} />
       </main>
+      <Footer />
       <StickyContact productName={productName} />
       <CookieBanner />
     </>
