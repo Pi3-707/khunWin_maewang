@@ -1,6 +1,6 @@
 import { supabase } from './supabase';
 import { isUuid } from './product';
-import type { Category, Material, Process, ProductDetail, ProductListItem } from './types';
+import type { Category, Material, Process, ProductDetail, ProductListItem, VisitRow } from './types';
 
 // products has two links to stories (products.story_id and stories.product_id), so the embed needs an FK hint.
 const DETAIL_SELECT = `*,
@@ -54,4 +54,10 @@ export async function fetchHomeStory(): Promise<{ processes: Process[]; material
   if (p.error) throw p.error;
   if (m.error) throw m.error;
   return { processes: (p.data ?? []) as Process[], materials: (m.data ?? []) as Material[] };
+}
+
+export async function fetchVisitInfo(): Promise<VisitRow[]> {
+  const { data, error } = await supabase.from('visit_info').select('*').order('display_order');
+  if (error) throw error;
+  return (data ?? []) as VisitRow[];
 }

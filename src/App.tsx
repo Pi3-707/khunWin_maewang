@@ -5,6 +5,9 @@ import NotFound from './pages/NotFound';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import QrRedirect from './pages/QrRedirect';
+import OurStory from './pages/OurStory';
+import Visit from './pages/Visit';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
@@ -15,6 +18,9 @@ export default function App() {
           <Route path="products" element={<Products />} />
           <Route path="products/:id" element={<ProductDetail />} />
           <Route path="p/:qr" element={<QrRedirect />} />
+          <Route path="our-story" element={<OurStory />} />
+          <Route path="visit" element={<Visit />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
