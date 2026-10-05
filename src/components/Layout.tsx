@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { CookieBanner } from './CookieBanner';
 import { StickyContact } from './StickyContact';
 
 export type LayoutContext = { setProductName: (n?: string) => void };
@@ -29,6 +30,7 @@ export function Layout() {
         <Outlet context={{ setProductName } satisfies LayoutContext} />
       </main>
       <StickyContact productName={productName} />
+      <CookieBanner />
     </>
   );
 }
