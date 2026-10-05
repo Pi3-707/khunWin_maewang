@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
+import { ContactButtons } from '../components/ContactButtons';
 import type { LayoutContext } from '../components/Layout';
 import { track } from '../lib/analytics';
 import { availabilityLabel, formatPrice } from '../lib/format';
@@ -27,75 +28,76 @@ export default function ProductDetail() {
   if (!p) return <NotFound message="ไม่พบสินค้านี้" />;
 
   const gallery = [...p.product_images].sort((a, b) => a.display_order - b.display_order);
+  const story = [p.story?.introduction, p.story?.origin_story, p.story?.value_story].filter(Boolean) as string[];
+  const makers = p.artisans.map((a) => a.name).join(', ') || 'ช่างฝีมือในชุมชน';
   return (
-    <div className="container">
-      <h1>{p.name}</h1>
-      <img src={coverUrl(p)} alt={p.name} style={{ maxHeight: 460, objectFit: 'cover', width: '100%', borderRadius: 8 }} />
-      <p>
-        <strong>{formatPrice(p.reference_price)}</strong>{' '}
-        <span className={`badge ${p.availability === 'ready' ? 'badge-ready' : ''}`}>{availabilityLabel(p.availability)}</span>
-      </p>
-      {p.description && <p>{p.description}</p>}
-      {p.story && (
-        <section>
-          <h2>{p.story.title}</h2>
-          {p.story.introduction && <p>{p.story.introduction}</p>}
-          {p.story.origin_story && <p>{p.story.origin_story}</p>}
-          {p.story.value_story && <p>{p.story.value_story}</p>}
-        </section>
-      )}
-      {p.materials.length > 0 && (
-        <section>
-          <h2>วัตถุดิบ</h2>
-          {p.materials.map((m) => (
-            <p key={m.id}><strong>{m.name}</strong>{m.origin ? ` · ${m.origin}` : ''}{m.note ? ` — ${m.note}` : ''}</p>
-          ))}
-        </section>
-      )}
-      {p.processes.length > 0 && (
-        <section>
-          <h2>กระบวนการทำ</h2>
-          <ol>
-            {p.processes.map((s) => (
-              <li key={s.id}><strong>{s.name}</strong>{s.description ? `: ${s.description}` : ''}{s.note ? ` (${s.note})` : ''}</li>
-            ))}
-          </ol>
-        </section>
-      )}
-      {p.artisans.length > 0 && (
-        <section>
-          <h2>คนทำ</h2>
-          {p.artisans.map((a) => (
-            <p key={a.id}><strong>{a.name}</strong> · {a.product_role}{a.bio ? ` — ${a.bio}` : ''}</p>
-          ))}
-        </section>
-      )}
-      {p.elephants.length > 0 && (
-        <section>
-          <h2>ช้างที่อยู่เบื้องหลัง</h2>
-          {p.elephants.map((e) => (
-            <p key={e.id}><strong>{e.name}</strong>{e.age_years ? ` · ${e.age_years} ปี` : ''}{e.description ? ` — ${e.description}` : ''}</p>
-          ))}
-        </section>
-      )}
-      {gallery.length > 0 && (
-        <section>
-          <h2>ภาพสินค้า</h2>
-          <div className="grid">
-            {gallery.map((g) => <img key={g.url} src={g.url} alt={p.name} loading="lazy" />)}
+    <>
+      <section className="detail-band">
+        <div className="container">
+          <div>
+            <span className="eyebrow">{p.category} • {availabilityLabel(p.availability)}</span>
+            <h1>{p.name}</h1>
+            <p className="price">{formatPrice(p.reference_price)}</p>
           </div>
-        </section>
-      )}
-      {p.channels.length > 0 && (
-        <section>
-          <h2>ช่องทางสั่งซื้อ</h2>
-          <div className="contact-buttons">
-            {p.channels.map((c) => (
-              <a key={c.id} className="btn btn-ghost" href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+          <img src={coverUrl(p)} alt={p.name} />
+        </div>
+      </section>
+
+      <div className="container">
+        <span className="eyebrow">แนวคิดของชิ้นงาน</span>
+        <h2>{p.story?.title ?? 'เรื่องเล่าของชิ้นนี้'}</h2>
+        {p.description && <p>{p.description}</p>}
+        {story.map((s) => <p key={s}>{s}</p>)}
+
+        <div className="stats">
+          <div className="stat"><span className="eyebrow">วัตถุดิบ</span><strong>{p.materials.map((m) => m.name).join(', ') || '—'}</strong></div>
+          <div className="stat"><span className="eyebrow">สถานะ</span><strong>{availabilityLabel(p.availability)}</strong></div>
+          <div className="stat"><span className="eyebrow">ผู้ทำ</span><strong>{makers}</strong></div>
+        </div>
+
+        {p.processes.length > 0 && (
+          <section>
+            <span className="eyebrow">ทำอย่างไร • {p.processes.length} ขั้นตอนงานมือ</span>
+            <ol className="steps">
+              {p.processes.map((s, i) => (
+                <li key={s.id}>
+                  <span className="num">{String(i + 1).padStart(2, '0')}</span>
+                  <strong>{s.name}</strong>
+                  {s.description && <p>{s.description}</p>}
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {p.elephants.length > 0 && (
+          <section>
+            <span className="eyebrow">ช้างที่อยู่เบื้องหลัง</span>
+            {p.elephants.map((e) => (
+              <p key={e.id}><strong>{e.name}</strong>{e.age_years ? ` · ${e.age_years} ปี` : ''}{e.description ? ` — ${e.description}` : ''}</p>
             ))}
-          </div>
+          </section>
+        )}
+
+        {gallery.length > 0 && (
+          <section>
+            <span className="eyebrow">ภาพสินค้า</span>
+            <div className="grid">{gallery.map((g) => <img key={g.url} src={g.url} alt={p.name} loading="lazy" style={{ borderRadius: 12 }} />)}</div>
+          </section>
+        )}
+
+        <section style={{ margin: '32px 0' }}>
+          <span className="eyebrow">สั่งซื้อตรงจากช่างฝีมือ</span>
+          <ContactButtons productName={p.name} />
+          {p.channels.length > 0 && (
+            <div className="contact-buttons" style={{ marginTop: 10 }}>
+              {p.channels.map((c) => (
+                <a key={c.id} className="btn btn-ghost" href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+              ))}
+            </div>
+          )}
         </section>
-      )}
-    </div>
+      </div>
+    </>
   );
 }

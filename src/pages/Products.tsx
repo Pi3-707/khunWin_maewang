@@ -15,20 +15,26 @@ export default function Products() {
   const { data, error, loading } = useAsync(() => fetchProducts(category), [category]);
 
   return (
-    <div className="container">
-      <h1>สินค้า</h1>
-      <p>
-        {FILTERS.map(([value, label]) => (
-          <button key={value} className={`btn ${category === (value || undefined) ? '' : 'btn-ghost'}`} style={{ marginRight: 8 }}
-            onClick={() => setParams(value ? { category: value } : {})}>
-            {label}
-          </button>
-        ))}
-      </p>
-      {loading && <p>กำลังโหลด…</p>}
-      {error && <p className="error">โหลดข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง</p>}
-      {data && data.length === 0 && <p>ยังไม่มีสินค้าในหมวดนี้</p>}
-      <div className="grid">{data?.map((p) => <ProductCard key={p.id} p={p} />)}</div>
-    </div>
+    <section className="band band-white">
+      <div className="container">
+        <div className="section-head">
+          <span className="eyebrow">คลังงานคราฟต์ • ทำมือในชุมชน</span>
+          <h1>Living Artifacts</h1>
+          <p>เลือกดูงานมือแต่ละชิ้น แล้วทักสอบถามหรือจองผ่าน LINE ได้ทันที</p>
+        </div>
+        <div className="filters">
+          {FILTERS.map(([value, label]) => (
+            <button key={value} className={`btn ${category === (value || undefined) ? '' : 'btn-ghost'}`}
+              onClick={() => setParams(value ? { category: value } : {})}>
+              {label}
+            </button>
+          ))}
+        </div>
+        {loading && <p>กำลังโหลด…</p>}
+        {error && <p className="error">โหลดข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง</p>}
+        {data && data.length === 0 && <p>ยังไม่มีสินค้าในหมวดนี้</p>}
+        <div className="grid">{data?.map((p) => <ProductCard key={p.id} p={p} />)}</div>
+      </div>
+    </section>
   );
 }

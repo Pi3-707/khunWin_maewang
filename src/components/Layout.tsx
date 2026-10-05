@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { CookieBanner } from './CookieBanner';
 import { Footer } from './Footer';
 import { StickyContact } from './StickyContact';
@@ -7,10 +7,9 @@ import { StickyContact } from './StickyContact';
 export type LayoutContext = { setProductName: (n?: string) => void };
 
 const links: [string, string][] = [
-  ['/', 'หน้าแรก'],
   ['/products', 'สินค้า'],
   ['/our-story', 'เรื่องราวของเรา'],
-  ['/visit', 'มาเยี่ยมชมชุมชน'],
+  ['/visit', 'มาเยี่ยมชม'],
   ['/contact', 'ติดต่อ'],
 ];
 
@@ -20,9 +19,12 @@ export function Layout() {
     <>
       <header className="site-header">
         <nav>
-          <NavLink to="/" className="brand">ขุนวินแม่วาง</NavLink>
+          <Link to="/" className="brand">
+            <img src="/stitch/emblem.jpg" alt="" width={38} height={38} />
+            <span><strong>ขุนวินแม่วาง</strong><small>Living Craft • Mae Wang</small></span>
+          </Link>
           {links.map(([to, label]) => (
-            <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink key={to} to={to} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
               {label}
             </NavLink>
           ))}

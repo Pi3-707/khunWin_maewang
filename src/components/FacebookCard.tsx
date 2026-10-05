@@ -6,7 +6,7 @@ const FB_URL = import.meta.env.VITE_FB_URL ?? '';
 export function FacebookCard() {
   return (
     <div className="fb-card">
-      <p className="stamp">Facebook</p>
+      <span className="eyebrow">Facebook</span>
       <h3>วิสาหกิจชุมชนบ้านแม่มูตร</h3>
       <p className="muted">ร้านผ้าทอสีจากใบไม้ธรรมชาติ</p>
       <p className="muted">1 หมู่ 6 ต.แม่วิน อ.แม่วาง เชียงใหม่ 50360</p>

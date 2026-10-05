@@ -6,15 +6,21 @@ import type { ProductListItem } from '../lib/types';
 export function ProductCard({ p }: { p: ProductListItem }) {
   const materials = p.product_materials.map((m) => m.materials?.name).filter(Boolean) as string[];
   return (
-    <Link to={`/products/${p.id}`} className="card">
-      <img src={coverUrl(p)} alt={p.name} loading="lazy" />
+    <Link to={`/products/${p.id}`} className="card reveal">
+      <div className="card-media">
+        <img src={coverUrl(p)} alt={p.name} loading="lazy" />
+        <span className="card-tag">{p.category} • {availabilityLabel(p.availability)}</span>
+      </div>
       <div className="card-body">
-        <h3>{p.name}</h3>
-        <p className="muted">{formatPrice(p.reference_price)}</p>
-        <span className={`badge ${p.availability === 'ready' ? 'badge-ready' : ''}`}>{availabilityLabel(p.availability)}</span>
-        {materials.map((m) => (
-          <span key={m} className="badge">{m}</span>
-        ))}
+        <div className="card-title">
+          <h3>{p.name}</h3>
+          <span className="price">{formatPrice(p.reference_price)}</span>
+        </div>
+        <p className="card-desc">{p.story_summary ?? p.description ?? ''}</p>
+        <div className="card-foot">
+          <span className="dot">{materials.join(' · ') || 'งานมือ'}</span>
+          <span className="cta">สอบถาม / จอง →</span>
+        </div>
       </div>
     </Link>
   );
