@@ -8,6 +8,9 @@ import QrRedirect from './pages/QrRedirect';
 import OurStory from './pages/OurStory';
 import Visit from './pages/Visit';
 import Contact from './pages/Contact';
+import { RequireAuth } from './components/RequireAuth';
+import Login from './pages/admin/Login';
+import AdminProducts from './pages/admin/AdminProducts';
 
 export default function App() {
   return (
@@ -23,6 +26,8 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/admin" element={<Login />} />
+        <Route path="/admin/products" element={<RequireAuth><AdminProducts /></RequireAuth>} />
       </Routes>
     </BrowserRouter>
   );
