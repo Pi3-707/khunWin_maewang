@@ -10,7 +10,9 @@ Full design: `docs/superpowers/specs/2026-10-05-khunwin-maewang-design.md`. Read
 - Deploy on Vercel
 
 ## Commands
-Added at build step 1 (scaffold). Expected: `npm run dev`, `npm run build`, `npm test`.
+- `npm run dev` start dev server
+- `npm run build` typecheck and build
+- `npm test` run Vitest once
 
 ## Rules
 - Thai only for v1. English columns come later.
