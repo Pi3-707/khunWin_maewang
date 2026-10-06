@@ -102,6 +102,14 @@ export const S = {
   'contact.title': { th: 'ติดต่อเรา', en: 'Contact Us' },
   'contact.text': { th: 'ทักมาคุยหรือสอบถามสินค้าได้ทาง LINE และ Messenger หรือโทรหาเราโดยตรง', en: 'Chat with us or ask about a product on LINE or Messenger, or call us directly.' },
   'contact.qrAlt': { th: 'QR code LINE', en: 'LINE QR code' },
+  'contact.eyebrow': { th: 'คุยกับชุมชนโดยตรง', en: 'Talk to the community directly' },
+  'contact.lineSub': { th: 'ตอบเร็วที่สุด สอบถามหรือจองสินค้า', en: 'Fastest reply — ask or reserve a piece' },
+  'contact.messengerSub': { th: 'ทักผ่านเพจ Facebook', en: 'Message us through Facebook' },
+  'contact.phone': { th: 'โทรศัพท์', en: 'Phone' },
+  'contact.phoneSub': { th: 'โทรคุยกับทีมช่างในชุมชน', en: 'Call our artisan team' },
+  'contact.visitSub': { th: 'แผนที่ การเดินทาง และกิจกรรม', en: 'Map, directions and activities' },
+  'contact.soon': { th: 'เร็ว ๆ นี้', en: 'Coming soon' },
+  'contact.scan': { th: 'สแกนเพื่อเพิ่มเพื่อนใน LINE', en: 'Scan to add us on LINE' },
 } satisfies Record<string, { th: string; en: string }>;
 
 export type StringKey = keyof typeof S;
