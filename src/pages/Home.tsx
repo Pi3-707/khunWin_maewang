@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { FeaturedShowcase } from '../components/FeaturedShowcase';
 import { ForestBanner } from '../components/ForestBanner';
 import { ProductCard } from '../components/ProductCard';
@@ -8,19 +7,11 @@ import { fetchHomeStory, fetchProducts } from '../lib/queries';
 import { useAsync } from '../lib/useAsync';
 import { usePageTitle } from '../lib/usePageTitle';
 
-function useShowVideo() {
-  if (typeof window === 'undefined') return false;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const saveData = (navigator as any).connection?.saveData === true;
-  return !reduce && !saveData;
-}
-
 const short = (s: string | null, n = 34) => (s && s.length > n ? `${s.slice(0, n)}…` : s ?? '');
 
 export default function Home() {
   const { t, pick } = useLang();
   usePageTitle(t('home.title'));
-  const showVideo = useShowVideo();
   const story = useAsync(fetchHomeStory, []);
   const products = useAsync(() => fetchProducts(), []);
   const materials = story.data?.materials.slice(0, 3) ?? [];
@@ -32,32 +23,9 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
-        <div className="hero-inner">
-          <div>
-            <span className="eyebrow">{t('home.heroEyebrow')}</span>
-            <h1>{t('home.heroTitle')}</h1>
-            <p>{t('home.heroText')}</p>
-            <div className="hero-actions">
-              <Link className="btn" to="/products">{t('common.allProducts')}</Link>
-              <Link className="btn btn-ghost" to="/our-story">{t('nav.story')}</Link>
-            </div>
-            <span className="hero-tag">{t('home.heroTag')}</span>
-          </div>
-          <div className="hero-media">
-            {showVideo && (
-              <video autoPlay muted loop playsInline preload="metadata" poster="/stitch/hero.jpg">
-                <source src="/hero.webm" type="video/webm" />
-                <source src="/hero.mp4" type="video/mp4" />
-              </video>
-            )}
-          </div>
-        </div>
-      </section>
+      <ForestBanner />
 
       {products.data && <FeaturedShowcase products={products.data} />}
-
-      <ForestBanner />
 
       <section className="band band-white">
         <div className="container">
