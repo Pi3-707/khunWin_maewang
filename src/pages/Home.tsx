@@ -1,4 +1,4 @@
-import { FeaturedShowcase } from '../components/FeaturedShowcase';
+import { RecommendedRow } from '../components/RecommendedRow';
 import { ForestBanner } from '../components/ForestBanner';
 import { ProductCard } from '../components/ProductCard';
 import { useLang } from '../i18n/LangContext';
@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <ForestBanner />
 
-      {products.data && <FeaturedShowcase products={products.data} />}
+      {products.data && <RecommendedRow products={products.data} />}
 
       <section className="band band-white">
         <div className="container">
