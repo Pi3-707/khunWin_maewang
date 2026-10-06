@@ -22,3 +22,6 @@ export const WeaverIcon = () => (
 export const ElephantIcon = () => (
   <svg {...base}><path d="M4 15V11a6 6 0 0 1 6-6h3a6 6 0 0 1 6 6v1.5c0 1.4.6 2.7 1.5 3.5" /><path d="M20.5 16c0 1.7-1.2 3-2.7 3" /><path d="M7 15v4M11 16v3M15 16v3" /><circle cx="15.5" cy="9.5" r=".8" fill="currentColor" /><path d="M10 5.5c-1.5 1-2 2.6-1.6 4.2" /></svg>
 );
+export const BankIcon = () => (
+  <svg {...base}><path d="M3 9.5 12 4l9 5.5" /><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7" /><path d="M3 20h18" /></svg>
+);
