@@ -229,3 +229,9 @@ main, .site-footer { position: relative; z-index: 1; }
 .lang-switch button.on { background: var(--rose); color: #fff; }
 .lang-switch button:not(.on):hover { background: rgba(134, 77, 83, .08); }
 @media (prefers-reduced-motion: reduce) { .lang-switch button { transition: none; } }
+
+/* Prices: plain sans, upright and semi-bold, equal-width digits. Easier to read than the italic serif. */
+.price, .featured-price, .detail-band .price { font-family: var(--font-body); font-style: normal; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.price { font-size: 16px; }
+.featured-price { font-size: 22px; }
+.detail-band .price { font-size: 22px; }
