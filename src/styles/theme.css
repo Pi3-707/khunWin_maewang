@@ -301,3 +301,12 @@ a.contact-card:hover .contact-arrow { transform: translateX(3px); }
 /* Whole top bar in Sarabun, Latin letters included. */
 .site-header, .site-header .brand strong, .site-header .brand small, .site-header nav a.nav-link, .lang-switch button { font-family: 'Sarabun', sans-serif; }
 .site-header .brand strong { font-weight: 600; font-size: 20px; }
+
+/* Product names in one font: mixing the Latin serif with Thai Sarabun looked uneven. */
+.card-title h3, .spot-main-body h3, .spot-small strong, .detail-band h1, .detail-band + .container > h2, .maker-works a {
+  font-family: 'Sarabun', sans-serif; font-weight: 600; letter-spacing: 0;
+}
+.card-title h3 { font-size: 18px; line-height: 1.35; }
+.spot-main-body h3 { font-size: 24px; line-height: 1.3; }
+.spot-small strong { font-size: 15px; line-height: 1.35; }
+.detail-band h1 { font-size: clamp(30px, 4vw, 42px); line-height: 1.25; }
