@@ -13,10 +13,9 @@ export function Footer() {
         <p>{t('footer.text')}</p>
         <ContactButtons />
         <FacebookCard />
-        <SponsorBadge />
         <div className="footer-meta">
-          <span>{t('footer.copy')} · <Link to="/our-story">{t('nav.story')}</Link> · <Link to="/visit">{t('nav.visit')}</Link></span>
-          <em>{t('footer.tagline')}</em>
+          <span>{t('footer.copy')} · <Link to="/our-story">{t('nav.story')}</Link> · <Link to="/visit">{t('nav.visit')}</Link><br /><em>{t('footer.tagline')}</em></span>
+          <SponsorBadge />
         </div>
       </div>
     </footer>
