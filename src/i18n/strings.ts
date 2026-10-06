@@ -56,6 +56,10 @@ export const S = {
   'mat.natural_material': { th: 'วัตถุดิบธรรมชาติ', en: 'Natural material' },
   'mat.textile': { th: 'ผ้าทอ', en: 'Woven textile' },
   'featured.label': { th: 'ผลงานแนะนำ', en: 'Featured' },
+  'banner.eyebrow': { th: 'จากป่าแม่วาง', en: 'From the Mae Wang Forest' },
+  'banner.title': { th: 'สีจากป่า ทอด้วยมือ', en: 'Colour from the Forest, Woven by Hand' },
+  'banner.text': { th: 'ใบไม้ ใยธรรมชาติ และมูลช้างจากรอบหมู่บ้าน กลายเป็นผ้าและงานคราฟต์ที่ไม่มีชิ้นไหนซ้ำกัน', en: 'Leaves, natural fibre and elephant dung from around the village become fabric and craft — no two pieces alike.' },
+  'banner.explore': { th: 'สำรวจเรื่องราว', en: 'Explore' },
 
   'products.text': { th: 'เลือกดูงานมือแต่ละชิ้น แล้วทักสอบถามหรือจองผ่าน LINE ได้ทันที', en: 'Browse each handmade piece, then message us on LINE to ask or reserve.' },
   'products.empty': { th: 'ยังไม่มีสินค้าในหมวดนี้', en: 'No products in this category yet.' },

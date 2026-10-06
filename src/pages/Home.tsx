@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FeaturedShowcase } from '../components/FeaturedShowcase';
+import { ForestBanner } from '../components/ForestBanner';
 import { ProductCard } from '../components/ProductCard';
 import { useLang } from '../i18n/LangContext';
 import type { StringKey } from '../i18n/strings';
@@ -55,6 +56,8 @@ export default function Home() {
       </section>
 
       {products.data && <FeaturedShowcase products={products.data} />}
+
+      <ForestBanner />
 
       <section className="band band-white">
         <div className="container">

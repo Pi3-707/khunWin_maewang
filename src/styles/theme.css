@@ -235,3 +235,17 @@ main, .site-footer { position: relative; z-index: 1; }
 .price { font-size: 16px; }
 .featured-price { font-size: 22px; }
 .detail-band .price { font-size: 22px; }
+
+/* Full-width forest banner */
+.forest-banner { position: relative; overflow: hidden; min-height: 78vh; display: flex; align-items: flex-end; color: #fff; background: #2d342e; }
+.forest-banner-photo { position: absolute; inset: 0; background: url('/stitch/elephant-wide.jpg') center 40% / cover; animation: banner-drift 24s ease-in-out infinite alternate; }
+.forest-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 16, 12, .78) 0%, rgba(20, 16, 12, .35) 45%, rgba(20, 16, 12, .05) 75%); }
+@keyframes banner-drift { from { transform: scale(1); } to { transform: scale(1.08) translateX(-1.5%); } }
+.forest-banner-inner { position: relative; z-index: 1; padding-top: 0; padding-bottom: 56px; }
+.forest-banner .eyebrow { color: #e9d3b4; }
+.forest-banner h2 { color: #fff; font-size: clamp(36px, 6vw, 68px); max-width: 760px; margin: 4px 0 12px; }
+.forest-banner p { max-width: 520px; color: rgba(255, 255, 255, .9); margin: 0 0 22px; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; background: #fff; color: var(--earth); font-size: 13px; font-weight: 600; text-decoration: none; transition: background .15s, color .15s; }
+.pill:hover { background: var(--rose); color: #fff; }
+@media (prefers-reduced-motion: reduce) { .forest-banner-photo { animation: none; } .pill { transition: none; } }
