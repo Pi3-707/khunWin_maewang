@@ -14,12 +14,12 @@ const DETAIL_SELECT = `*,
 
 const one = <T,>(x: T | T[] | null): T | null => (Array.isArray(x) ? (x[0] ?? null) : x);
 
-export async function fetchProducts(category?: Category): Promise<ProductListItem[]> {
+export async function fetchProducts(categories?: Category[]): Promise<ProductListItem[]> {
   let q = supabase
     .from('products')
     .select('*, product_images(url, display_order), product_materials(materials(name))')
     .order('created_at');
-  if (category) q = q.eq('category', category);
+  if (categories) q = q.in('category', categories);
   const { data, error } = await q;
   if (error) throw error;
   return (data ?? []) as unknown as ProductListItem[];

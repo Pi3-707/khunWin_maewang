@@ -4,6 +4,7 @@ import { ContactButtons } from '../components/ContactButtons';
 import type { LayoutContext } from '../components/Layout';
 import { track } from '../lib/analytics';
 import { availabilityLabel, formatPrice } from '../lib/format';
+import { categoryLabel } from '../lib/categories';
 import { coverUrl } from '../lib/product';
 import { fetchProduct } from '../lib/queries';
 import { useAsync } from '../lib/useAsync';
@@ -35,7 +36,7 @@ export default function ProductDetail() {
       <section className="detail-band">
         <div className="container">
           <div>
-            <span className="eyebrow">{p.category} • {availabilityLabel(p.availability)}</span>
+            <span className="eyebrow">{categoryLabel(p.category)} • {availabilityLabel(p.availability)}</span>
             <h1>{p.name}</h1>
             <p className="price">{formatPrice(p.reference_price)}</p>
           </div>

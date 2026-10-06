@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent, type ReactElement } from 'react';
 import { removePhoto, uploadPhoto } from '../../lib/image';
 import { saveProduct, type SaveDeps } from '../../lib/saveProduct';
+import { CATEGORY_LABEL } from '../../lib/categories';
 import { fetchProducts } from '../../lib/queries';
 import { supabase } from '../../lib/supabase';
 import type { Availability, Category, ProductListItem } from '../../lib/types';
@@ -91,7 +92,7 @@ export default function AdminProducts() {
       <form onSubmit={save} style={{ maxWidth: 520 }}>
         {field('ชื่อสินค้า', <input required value={d.name} onChange={(e) => setD({ ...d, name: e.target.value })} style={{ width: '100%' }} />)}
         {field('รหัสสินค้า', <input required value={d.product_code} onChange={(e) => setD({ ...d, product_code: e.target.value })} style={{ width: '100%' }} />)}
-        {field('ประเภท', <select value={d.category} onChange={(e) => setD({ ...d, category: e.target.value as Category })}><option value="ayara">Ayara</option><option value="ecoprint">Ecoprint</option></select>)}
+        {field('ประเภท', <select value={d.category} onChange={(e) => setD({ ...d, category: e.target.value as Category })}>{Object.entries(CATEGORY_LABEL).map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>)}
         {field('ราคาอ้างอิง (บาท, เว้นว่างถ้าไม่ระบุ)', <input inputMode="decimal" value={d.reference_price} onChange={(e) => setD({ ...d, reference_price: e.target.value })} />)}
         {field('สถานะ', <select value={d.availability} onChange={(e) => setD({ ...d, availability: e.target.value as Availability })}><option value="ready">พร้อมส่ง</option><option value="made_to_order">สั่งทำล่วงหน้า</option></select>)}
         {field('รายละเอียด', <textarea rows={3} value={d.description} onChange={(e) => setD({ ...d, description: e.target.value })} style={{ width: '100%' }} />)}

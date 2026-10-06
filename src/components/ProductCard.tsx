@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { availabilityLabel, formatPrice } from '../lib/format';
+import { categoryLabel } from '../lib/categories';
 import { coverUrl } from '../lib/product';
 import type { ProductListItem } from '../lib/types';
 
@@ -9,7 +10,7 @@ export function ProductCard({ p }: { p: ProductListItem }) {
     <Link to={`/products/${p.id}`} className="card reveal">
       <div className="card-media">
         <img src={coverUrl(p)} alt={p.name} loading="lazy" />
-        <span className="card-tag">{p.category} • {availabilityLabel(p.availability)}</span>
+        <span className="card-tag">{categoryLabel(p.category)} • {availabilityLabel(p.availability)}</span>
       </div>
       <div className="card-body">
         <div className="card-title">

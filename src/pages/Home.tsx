@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FeaturedShowcase } from '../components/FeaturedShowcase';
 import { ProductCard } from '../components/ProductCard';
 import { fetchHomeStory, fetchProducts } from '../lib/queries';
 import { useAsync } from '../lib/useAsync';
@@ -47,6 +48,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {products.data && <FeaturedShowcase products={products.data} />}
 
       <section className="band band-white">
         <div className="container">

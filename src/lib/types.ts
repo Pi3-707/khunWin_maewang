@@ -1,5 +1,5 @@
 export type Availability = 'ready' | 'made_to_order';
-export type Category = 'ayara' | 'ecoprint';
+export type Category = 'ecoprint' | 'ayara' | 'dung_pot' | 'dung_sculpture';
 
 export interface Product {
   id: string;
