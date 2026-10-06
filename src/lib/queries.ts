@@ -17,7 +17,7 @@ const one = <T,>(x: T | T[] | null): T | null => (Array.isArray(x) ? (x[0] ?? nu
 export async function fetchProducts(categories?: Category[]): Promise<ProductListItem[]> {
   let q = supabase
     .from('products')
-    .select('*, product_images(url, display_order), product_materials(materials(name))')
+    .select('*, product_images(url, display_order), product_materials(materials(name, name_en))')
     .order('created_at');
   if (categories) q = q.in('category', categories);
   const { data, error } = await q;

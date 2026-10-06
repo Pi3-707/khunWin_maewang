@@ -17,3 +17,12 @@ describe('format', () => {
     expect(availabilityLabel('made_to_order')).toBe('สั่งทำล่วงหน้า');
   });
 });
+
+describe('format in English', () => {
+  test('price on request and availability', () => {
+    expect(formatPrice(null, 'en')).toBe('Price on request');
+    expect(formatPrice(1200, 'en')).toBe('฿1,200');
+    expect(availabilityLabel('ready', 'en')).toBe('Ready to ship');
+    expect(availabilityLabel('made_to_order', 'en')).toBe('Made to order');
+  });
+});

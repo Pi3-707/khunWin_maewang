@@ -12,6 +12,9 @@ export interface Product {
   product_code: string;
   reference_price: number | string | null;
   availability: Availability;
+  name_en?: string | null;
+  description_en?: string | null;
+  story_summary_en?: string | null;
 }
 
 export interface ProductImage { url: string; display_order: number }

@@ -22,3 +22,10 @@ describe('categories', () => {
     expect(parseFilter(null)).toBeUndefined();
   });
 });
+
+test('English category labels', () => {
+  expect(categoryLabel('ecoprint', 'en')).toBe('Eco-print Fabric');
+  expect(categoryLabel('ayara', 'en')).toBe('Elephant-Dung Dyed Fabric');
+  expect(categoryLabel('dung_pot', 'en')).toBe('Elephant-Dung Plant Pots');
+  expect(categoryLabel('dung_sculpture', 'en')).toBe('Elephant-Dung Sculptures');
+});

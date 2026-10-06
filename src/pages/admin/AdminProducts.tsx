@@ -9,8 +9,9 @@ import type { Availability, Category, ProductListItem } from '../../lib/types';
 interface Draft {
   id?: string; name: string; product_code: string; category: Category;
   description: string; story_summary: string; reference_price: string; availability: Availability;
+  name_en: string; description_en: string; story_summary_en: string;
 }
-const empty: Draft = { name: '', product_code: '', category: 'ayara', description: '', story_summary: '', reference_price: '', availability: 'made_to_order' };
+const empty: Draft = { name: '', product_code: '', category: 'ayara', description: '', story_summary: '', reference_price: '', availability: 'made_to_order', name_en: '', description_en: '', story_summary_en: '' };
 
 function check(r: { error: unknown }) {
   if (r.error) throw r.error;
@@ -53,7 +54,8 @@ export default function AdminProducts() {
   const edit = (p: ProductListItem) => {
     setD({ id: p.id, name: p.name, product_code: p.product_code, category: p.category,
       description: p.description ?? '', story_summary: p.story_summary ?? '',
-      reference_price: p.reference_price == null ? '' : String(p.reference_price), availability: p.availability });
+      reference_price: p.reference_price == null ? '' : String(p.reference_price), availability: p.availability,
+      name_en: p.name_en ?? '', description_en: p.description_en ?? '', story_summary_en: p.story_summary_en ?? '' });
     setCover(null); setExtra([]); setMsg('');
   };
 
@@ -64,7 +66,8 @@ export default function AdminProducts() {
     setMsg('กำลังบันทึก…');
     const row = { name: d.name, product_code: d.product_code, category: d.category,
       description: d.description || null, story_summary: d.story_summary || null,
-      reference_price: price, availability: d.availability };
+      reference_price: price, availability: d.availability,
+      name_en: d.name_en || null, description_en: d.description_en || null, story_summary_en: d.story_summary_en || null };
     const res = await saveProduct(deps, d.id, row, cover, extra);
     // Keep the id and the unfinished files so a retry updates this product and skips finished uploads.
     if (res.id) setD((prev) => ({ ...prev, id: res.id }));
@@ -91,12 +94,16 @@ export default function AdminProducts() {
       <h2>{d.id ? 'แก้ไขสินค้า' : 'เพิ่มสินค้าใหม่'}</h2>
       <form onSubmit={save} style={{ maxWidth: 520 }}>
         {field('ชื่อสินค้า', <input required value={d.name} onChange={(e) => setD({ ...d, name: e.target.value })} style={{ width: '100%' }} />)}
+        {field('ชื่อสินค้า (English)', <input value={d.name_en} onChange={(e) => setD({ ...d, name_en: e.target.value })} style={{ width: '100%' }} />)}
         {field('รหัสสินค้า', <input required value={d.product_code} onChange={(e) => setD({ ...d, product_code: e.target.value })} style={{ width: '100%' }} />)}
         {field('ประเภท', <select value={d.category} onChange={(e) => setD({ ...d, category: e.target.value as Category })}>{Object.entries(CATEGORY_LABEL).map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>)}
         {field('ราคาอ้างอิง (บาท, เว้นว่างถ้าไม่ระบุ)', <input inputMode="decimal" value={d.reference_price} onChange={(e) => setD({ ...d, reference_price: e.target.value })} />)}
         {field('สถานะ', <select value={d.availability} onChange={(e) => setD({ ...d, availability: e.target.value as Availability })}><option value="ready">พร้อมส่ง</option><option value="made_to_order">สั่งทำล่วงหน้า</option></select>)}
         {field('รายละเอียด', <textarea rows={3} value={d.description} onChange={(e) => setD({ ...d, description: e.target.value })} style={{ width: '100%' }} />)}
+        {field('รายละเอียด (English)', <textarea rows={3} value={d.description_en} onChange={(e) => setD({ ...d, description_en: e.target.value })} style={{ width: '100%' }} />)}
         {field('เรื่องสั้น 2-3 ประโยค', <textarea rows={3} value={d.story_summary} onChange={(e) => setD({ ...d, story_summary: e.target.value })} style={{ width: '100%' }} />)}
+        {field('เรื่องสั้น (English)', <textarea rows={3} value={d.story_summary_en} onChange={(e) => setD({ ...d, story_summary_en: e.target.value })} style={{ width: '100%' }} />)}
+        <p className="muted">ช่อง English ว่างได้ ถ้าว่าง หน้าภาษาอังกฤษจะแสดงข้อความภาษาไทยแทน</p>
         {field('รูปหน้าปก', <input type="file" accept="image/*" onChange={(e) => setCover(e.target.files?.[0] ?? null)} />)}
         {field('รูปเพิ่มเติม (หลายมุม)', <input type="file" accept="image/*" multiple onChange={(e) => setExtra([...(e.target.files ?? [])])} />)}
         <button className="btn" type="submit">บันทึก</button>{' '}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { setConsent } from '../lib/analytics';
+import { useLang } from '../i18n/LangContext';
 
 const KEY = 'ga-consent';
 
@@ -11,6 +12,7 @@ function write(v: string) {
 }
 
 export function CookieBanner() {
+  const { t } = useLang();
   const [stored, setStored] = useState<string | null>(read);
 
   useEffect(() => {
@@ -23,10 +25,10 @@ export function CookieBanner() {
     setStored(v);
   };
   return (
-    <div className="cookie-banner" role="dialog" aria-label="คุกกี้">
-      <span>เว็บไซต์นี้ใช้คุกกี้เพื่อวัดจำนวนผู้เข้าชม ยอมรับหรือไม่</span>
-      <button className="btn" onClick={() => choose('yes')}>ยอมรับ</button>
-      <button className="btn btn-ghost" style={{ color: '#fff', borderColor: '#fff' }} onClick={() => choose('no')}>ไม่ยอมรับ</button>
+    <div className="cookie-banner" role="dialog" aria-label={t('cookie.label')}>
+      <span>{t('cookie.text')}</span>
+      <button className="btn" onClick={() => choose('yes')}>{t('cookie.accept')}</button>
+      <button className="btn btn-ghost" style={{ color: '#fff', borderColor: '#fff' }} onClick={() => choose('no')}>{t('cookie.decline')}</button>
     </div>
   );
 }

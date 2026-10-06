@@ -15,7 +15,7 @@ Full design: `docs/superpowers/specs/2026-10-05-khunwin-maewang-design.md`. Read
 - `npm test` run Vitest once
 
 ## Rules
-- Thai only for v1. English columns come later.
+- Bilingual (Thai default for Thai browsers, English otherwise). Interface text lives in `src/i18n/strings.ts`; database text uses `_en` columns that fall back to Thai when empty.
 - No cart, payment, stock counting or customer accounts.
 - Product availability is `ready` or `made_to_order`, never a count.
 - Commit and push after each build step in the spec.

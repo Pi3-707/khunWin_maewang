@@ -1,0 +1,105 @@
+import type { Lang } from './lang';
+
+// Every interface string, Thai and English. Database content is translated through `_en` columns instead.
+export const S = {
+  'site.name': { th: 'ขุนวินแม่วาง', en: 'Khunwin Mae Wang' },
+  'site.tagline': { th: 'Living Craft • Mae Wang', en: 'Living Craft • Mae Wang' },
+  'lang.label': { th: 'เลือกภาษา', en: 'Choose language' },
+  'line.prefix': { th: 'สนใจสินค้า:', en: 'Interested in:' },
+
+  'nav.products': { th: 'สินค้า', en: 'Products' },
+  'nav.story': { th: 'เรื่องราวของเรา', en: 'Our Story' },
+  'nav.visit': { th: 'มาเยี่ยมชม', en: 'Visit Us' },
+  'nav.contact': { th: 'ติดต่อ', en: 'Contact' },
+
+  'common.loading': { th: 'กำลังโหลด…', en: 'Loading…' },
+  'common.loadError': { th: 'โหลดข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง', en: 'Could not load. Please try again.' },
+  'common.allProducts': { th: 'ดูสินค้าทั้งหมด', en: 'View all products' },
+  'common.handmade': { th: 'งานมือ', en: 'Handmade' },
+  'common.inquire': { th: 'สอบถาม / จอง', en: 'Inquire / Reserve' },
+  'common.details': { th: 'ดูรายละเอียด →', en: 'View details →' },
+  'common.prev': { th: 'ก่อนหน้า', en: 'Previous' },
+  'common.next': { th: 'ถัดไป', en: 'Next' },
+  'common.call': { th: 'โทร', en: 'Call' },
+
+  'notFound.title': { th: 'ไม่พบหน้า', en: 'Not found' },
+  'notFound.page': { th: 'ไม่พบหน้าที่ต้องการ', en: 'Page not found' },
+  'notFound.product': { th: 'ไม่พบสินค้านี้', en: 'Product not found' },
+
+  'cookie.label': { th: 'คุกกี้', en: 'Cookies' },
+  'cookie.text': { th: 'เว็บไซต์นี้ใช้คุกกี้เพื่อวัดจำนวนผู้เข้าชม ยอมรับหรือไม่', en: 'We use cookies to count visitors. Do you accept?' },
+  'cookie.accept': { th: 'ยอมรับ', en: 'Accept' },
+  'cookie.decline': { th: 'ไม่ยอมรับ', en: 'Decline' },
+
+  'fb.open': { th: 'เปิดเพจ Facebook', en: 'Open Facebook page' },
+
+  'footer.title': { th: 'สั่งซื้อตรงจากช่างฝีมือ', en: 'Order Directly from the Artisans' },
+  'footer.text': { th: 'งานทุกชิ้นทำมือเป็นล็อตเล็ก ทักมาคุยกับทีมช่างในชุมชนได้โดยตรง ทั้งสั่งทำพิเศษ ขนาด และการจัดส่ง', en: 'Every piece is handmade in small batches. Message our village artisans directly about custom orders, sizes and shipping.' },
+  'footer.copy': { th: '© ขุนวินแม่วาง อ.แม่วาง เชียงใหม่', en: '© Khunwin Mae Wang, Mae Wang, Chiang Mai' },
+  'footer.tagline': { th: 'งานมือจากวัตถุดิบธรรมชาติ', en: 'Handmade from natural materials' },
+
+  'home.title': { th: 'งานคราฟต์จากชุมชน', en: 'Community Craft' },
+  'home.heroEyebrow': { th: 'ชุมชนขุนวินแม่วาง • เชียงใหม่', en: 'Khunwin Mae Wang Community • Chiang Mai' },
+  'home.heroTitle': { th: 'ผ้าและงานคราฟต์ จากป่า คน และช้าง', en: 'Fabric & Craft from the Forest, Its People and Its Elephants' },
+  'home.heroText': { th: 'วัตถุดิบจากธรรมชาติรอบชุมชน ย้อมสีจากใบไม้และมูลช้าง ทอและเย็บด้วยมือของคนในหมู่บ้าน ทุกชิ้นมีเรื่องเล่าของตัวเอง', en: 'Natural materials from around our village, dyed with leaves and elephant dung, then woven and stitched by hand. Every piece carries its own story.' },
+  'home.heroTag': { th: 'อ.แม่วาง จ.เชียงใหม่', en: 'Mae Wang, Chiang Mai' },
+  'home.collectionEyebrow': { th: 'คลังงานคราฟต์ • ทำมือในชุมชน', en: 'The Collection • Made in the Village' },
+  'home.collectionText': { th: 'งานมือจากช่างในหมู่บ้าน ใช้วัตถุดิบธรรมชาติจากป่ารอบชุมชน', en: 'Handmade by village artisans from natural materials gathered in the surrounding forest.' },
+  'home.storyPhotoAlt': { th: 'ผ้าพิมพ์ลายใบไม้', en: 'Leaf-printed fabric' },
+  'home.studio': { th: 'สตูดิโอหุบเขาแม่วาง', en: 'Mae Wang Valley Studio' },
+  'home.storyP1': { th: 'ทุกเช้า ช้างในชุมชนออกหากินในป่าบนเขา กินไผ่ หญ้า และผลไม้ป่า วิถีนี้เป็นส่วนหนึ่งของหมู่บ้านมาหลายรุ่น', en: 'Each morning our elephants roam the hillside forest, grazing on bamboo, grasses and wild fruit — a rhythm the village has lived with for generations.' },
+  'home.storyP2': { th: 'ใยธรรมชาติและใบไม้จากป่าถูกเก็บอย่างระมัดระวัง ตากแดด แล้วนำมาย้อมและทอเป็นงานคราฟต์โดยช่างในชุมชน', en: 'Natural fibres and forest leaves are gathered with care, sun-dried, then dyed and woven into craft by artisans in our community.' },
+  'home.storyFoot1': { th: 'รายได้กลับสู่ชุมชนโดยตรง', en: 'Income goes straight to the community' },
+  'home.storyFoot2': { th: 'ไม่ตัดไม้ทำลายป่า', en: 'Zero deforestation' },
+  'home.cycleEyebrow': { th: 'วงจรของวัตถุดิบธรรมชาติ', en: 'The Cycle of Natural Materials' },
+  'home.cycleTitle': { th: 'จากป่า สู่งานมือ', en: 'From Forest to Handcraft' },
+  'mat.natural_material': { th: 'วัตถุดิบธรรมชาติ', en: 'Natural material' },
+  'mat.textile': { th: 'ผ้าทอ', en: 'Woven textile' },
+  'featured.label': { th: 'ผลงานแนะนำ', en: 'Featured' },
+
+  'products.text': { th: 'เลือกดูงานมือแต่ละชิ้น แล้วทักสอบถามหรือจองผ่าน LINE ได้ทันที', en: 'Browse each handmade piece, then message us on LINE to ask or reserve.' },
+  'products.empty': { th: 'ยังไม่มีสินค้าในหมวดนี้', en: 'No products in this category yet.' },
+  'filter.all': { th: 'ทั้งหมด', en: 'All' },
+  'filter.ecoprint': { th: 'Eco-print', en: 'Eco-print' },
+  'filter.dung': { th: 'จากมูลช้าง', en: 'From Elephant Dung' },
+  'sub.ayara': { th: 'ผ้าย้อม', en: 'Dyed fabric' },
+  'sub.dung_pot': { th: 'กระถาง', en: 'Plant pots' },
+  'sub.dung_sculpture': { th: 'งานปั้น', en: 'Sculptures' },
+
+  'detail.philosophy': { th: 'แนวคิดของชิ้นงาน', en: 'The Story Behind It' },
+  'detail.storyDefault': { th: 'เรื่องเล่าของชิ้นนี้', en: 'About this piece' },
+  'detail.materials': { th: 'วัตถุดิบ', en: 'Materials' },
+  'detail.status': { th: 'สถานะ', en: 'Availability' },
+  'detail.makers': { th: 'ผู้ทำ', en: 'Made by' },
+  'detail.makersDefault': { th: 'ช่างฝีมือในชุมชน', en: 'Village artisans' },
+  'detail.how': { th: 'ทำอย่างไร', en: 'How it’s made' },
+  'detail.steps': { th: 'ขั้นตอนงานมือ', en: 'handmade steps' },
+  'detail.elephants': { th: 'ช้างที่อยู่เบื้องหลัง', en: 'The Elephants Behind It' },
+  'detail.years': { th: 'ปี', en: 'years old' },
+  'detail.gallery': { th: 'ภาพสินค้า', en: 'Gallery' },
+
+  'story.eyebrow': { th: 'ชุมชนขุนวินแม่วาง', en: 'Khunwin Mae Wang Community' },
+  'story.video': { th: 'วิดีโอเรื่องราวชุมชนขุนวินแม่วาง', en: 'Video: the story of Khunwin Mae Wang' },
+  'story.s1h': { th: 'ที่มาของชุมชน', en: 'Where We Come From' },
+  'story.s1b': { th: 'ขุนวินแม่วางเป็นชุมชนบนเทือกเขาทางเหนือของเชียงใหม่ ผู้คนอาศัยอยู่ใกล้ป่าและสายน้ำ และพึ่งพาธรรมชาติมาหลายรุ่น', en: 'Khunwin Mae Wang is a mountain community in northern Chiang Mai. Its people live close to the forest and streams, and have relied on nature for generations.' },
+  'story.s2h': { th: 'ผู้คนและภูมิปัญญา', en: 'People and Wisdom' },
+  'story.s2b': { th: 'งานฝีมือของชุมชนเกิดจากความรู้ที่ถ่ายทอดกันในครอบครัว ทั้งการเลือกวัตถุดิบ การย้อมสี และลวดลายท้องถิ่น', en: 'Our craft grows from knowledge passed down in families: choosing materials, natural dyeing and local patterns.' },
+  'story.s3h': { th: 'ช้างกับชุมชน', en: 'Elephants and the Village' },
+  'story.s3b': { th: 'ชุมชนอยู่ร่วมกับช้างอย่างเคารพ และนำเรื่องราวนี้มาสู่งานคราฟต์ที่ใส่ใจสิ่งแวดล้อม', en: 'We live alongside our elephants with respect, and carry that story into eco-conscious craft.' },
+
+  'visit.title': { th: 'มาเยี่ยมชมชุมชน', en: 'Visit the Community' },
+  'visit.map': { th: 'แผนที่', en: 'Map' },
+  'visit.mapTitle': { th: 'แผนที่ชุมชน', en: 'Community map' },
+  'visit.openMap': { th: 'เปิดใน Google Maps', en: 'Open in Google Maps' },
+  'visit.direction': { th: 'วิธีเดินทาง', en: 'Getting Here' },
+  'visit.activity': { th: 'กิจกรรมและเวิร์กชอป', en: 'Activities & Workshops' },
+  'visit.hours': { th: 'ช่วงเวลาที่เปิด', en: 'Opening Hours' },
+
+  'contact.title': { th: 'ติดต่อเรา', en: 'Contact Us' },
+  'contact.text': { th: 'ทักมาคุยหรือสอบถามสินค้าได้ทาง LINE และ Messenger หรือโทรหาเราโดยตรง', en: 'Chat with us or ask about a product on LINE or Messenger, or call us directly.' },
+  'contact.qrAlt': { th: 'QR code LINE', en: 'LINE QR code' },
+} satisfies Record<string, { th: string; en: string }>;
+
+export type StringKey = keyof typeof S;
+
+export const translate = (key: StringKey, lang: Lang) => S[key][lang];

@@ -18,3 +18,8 @@ describe('contact links', () => {
     expect(buildTelLink('081-234 5678')).toBe('tel:0812345678');
   });
 });
+
+test('LINE text prefix in English', () => {
+  const url = buildLineLink('@abc', 'Ayara fabric', 'en');
+  expect(new URL(url).searchParams.get('text')).toBe('Interested in: Ayara fabric');
+});

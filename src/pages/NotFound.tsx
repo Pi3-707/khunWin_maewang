@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../i18n/LangContext';
 import { usePageTitle } from '../lib/usePageTitle';
 
-export default function NotFound({ message = 'ไม่พบหน้าที่ต้องการ' }: { message?: string }) {
-  usePageTitle('ไม่พบหน้า');
+export default function NotFound({ message }: { message?: string }) {
+  const { t } = useLang();
+  usePageTitle(t('notFound.title'));
   return (
     <div className="container">
-      <h1>{message}</h1>
-      <Link to="/products">ดูสินค้าทั้งหมด</Link>
+      <h1>{message ?? t('notFound.page')}</h1>
+      <Link to="/products">{t('common.allProducts')}</Link>
     </div>
   );
 }

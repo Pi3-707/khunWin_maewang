@@ -1,20 +1,23 @@
-import { ourStory } from '../content/ourStory';
+import { useLang } from '../i18n/LangContext';
+import type { StringKey } from '../i18n/strings';
 import { usePageTitle } from '../lib/usePageTitle';
 
-// Google Drive file shared as "anyone with the link"; /preview is Drive's embeddable player.
+// Google Drive file shared as "anyone with the link"; the /preview URL is the embeddable player.
 const STORY_VIDEO = 'https://drive.google.com/file/d/1MqfeHWtN68PjJKCKotYhJTmsqatrOTot/preview';
+const SECTIONS: [StringKey, StringKey][] = [['story.s1h', 'story.s1b'], ['story.s2h', 'story.s2b'], ['story.s3h', 'story.s3b']];
 
 export default function OurStory() {
-  usePageTitle('เรื่องราวของเรา');
+  const { t } = useLang();
+  usePageTitle(t('nav.story'));
   return (
     <div className="container">
-      <span className="eyebrow">ชุมชนขุนวินแม่วาง</span>
-      <h1>เรื่องราวของเรา</h1>
+      <span className="eyebrow">{t('story.eyebrow')}</span>
+      <h1>{t('nav.story')}</h1>
       <div className="story-video">
-        <iframe src={STORY_VIDEO} title="วิดีโอเรื่องราวชุมชนขุนวินแม่วาง" loading="lazy" allow="autoplay; fullscreen" allowFullScreen />
+        <iframe src={STORY_VIDEO} title={t('story.video')} loading="lazy" allow="autoplay; fullscreen" allowFullScreen />
       </div>
-      {ourStory.map((s) => (
-        <section key={s.heading}><h2>{s.heading}</h2><p>{s.body}</p></section>
+      {SECTIONS.map(([h, b]) => (
+        <section key={h}><h2>{t(h)}</h2><p>{t(b)}</p></section>
       ))}
     </div>
   );

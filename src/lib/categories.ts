@@ -1,3 +1,4 @@
+import type { Lang } from '../i18n/lang';
 import type { Category } from './types';
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -12,7 +13,14 @@ export const DUNG_GROUP: Category[] = ['ayara', 'dung_pot', 'dung_sculpture'];
 // A filter is one category, or 'dung' for every elephant-dung product.
 export type Filter = Category | 'dung';
 
-export const categoryLabel = (c: Category) => CATEGORY_LABEL[c] ?? c;
+const CATEGORY_LABEL_EN: Record<Category, string> = {
+  ecoprint: 'Eco-print Fabric',
+  ayara: 'Elephant-Dung Dyed Fabric',
+  dung_pot: 'Elephant-Dung Plant Pots',
+  dung_sculpture: 'Elephant-Dung Sculptures',
+};
+
+export const categoryLabel = (c: Category, lang: Lang = 'th') => (lang === 'en' ? CATEGORY_LABEL_EN : CATEGORY_LABEL)[c] ?? c;
 
 export function filterCategories(f: Filter | undefined): Category[] | undefined {
   if (!f) return undefined;
