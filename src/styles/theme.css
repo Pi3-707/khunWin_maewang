@@ -11,8 +11,8 @@
   --forest: #4e644a;
   --line: rgba(90, 70, 56, .14);
   --shadow: 0 12px 32px -8px rgba(74, 51, 36, .14);
-  --font-head: 'Cormorant Garamond', 'Noto Serif Thai', serif;
-  --font-body: 'Plus Jakarta Sans', 'Noto Sans Thai', sans-serif;
+  --font-head: 'Cormorant Garamond', 'Sarabun', serif;
+  --font-body: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
