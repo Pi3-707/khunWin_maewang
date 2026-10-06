@@ -1,6 +1,6 @@
 import { RecommendedSpotlight } from '../components/RecommendedSpotlight';
 import { ForestBanner } from '../components/ForestBanner';
-import { ProductCard } from '../components/ProductCard';
+import { MeetTheMakers } from '../components/MeetTheMakers';
 import { useLang } from '../i18n/LangContext';
 import type { StringKey } from '../i18n/strings';
 import { fetchHomeStory, fetchProducts } from '../lib/queries';
@@ -27,17 +27,9 @@ export default function Home() {
 
       {products.data && <RecommendedSpotlight products={products.data} />}
 
-      <section className="band band-white">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">{t('home.collectionEyebrow')}</span>
-            <h2>Living Artifacts</h2>
-            <p>{t('home.collectionText')}</p>
-          </div>
-          {products.error && <p className="error">{t('common.loadError')}</p>}
-          <div className="grid">{products.data?.slice(0, 6).map((p) => <ProductCard key={p.id} p={p} />)}</div>
-        </div>
-      </section>
+      {products.error && <div className="container"><p className="error">{t('common.loadError')}</p></div>}
+
+      <MeetTheMakers />
 
       <section className="band band-paper">
         <div className="container story-split">

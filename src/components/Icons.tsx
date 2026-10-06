@@ -16,3 +16,9 @@ export const PinIcon = () => (
 export const ArrowIcon = () => (
   <svg {...base} width={18} height={18}><path d="M5 12h14M13 6l6 6-6 6" /></svg>
 );
+export const WeaverIcon = () => (
+  <svg {...base}><circle cx="12" cy="7" r="3.2" /><path d="M5.5 20c.6-3.6 3.3-6 6.5-6s5.9 2.4 6.5 6" /><path d="M16 11.5l3.5-2.5M19.5 9l1 1.6" /></svg>
+);
+export const ElephantIcon = () => (
+  <svg {...base}><path d="M4 15V11a6 6 0 0 1 6-6h3a6 6 0 0 1 6 6v1.5c0 1.4.6 2.7 1.5 3.5" /><path d="M20.5 16c0 1.7-1.2 3-2.7 3" /><path d="M7 15v4M11 16v3M15 16v3" /><circle cx="15.5" cy="9.5" r=".8" fill="currentColor" /><path d="M10 5.5c-1.5 1-2 2.6-1.6 4.2" /></svg>
+);

@@ -61,3 +61,28 @@ export async function fetchVisitInfo(): Promise<VisitRow[]> {
   if (error) throw error;
   return (data ?? []) as VisitRow[];
 }
+
+export interface Maker {
+  id: string;
+  kind: 'artisan' | 'elephant';
+  name: string; name_en: string | null;
+  role?: string | null; role_en?: string | null;
+  text: string | null; text_en: string | null;
+  image_url: string | null;
+  age_years?: number | null;
+  works: { id: string; name: string; name_en: string | null }[];
+}
+
+export async function fetchMakers(): Promise<Maker[]> {
+  const [a, e] = await Promise.all([
+    supabase.from('artisans').select('*, product_artisans(products(id, name, name_en))'),
+    supabase.from('elephants').select('*, product_elephants(products(id, name, name_en))'),
+  ]);
+  if (a.error) throw a.error;
+  if (e.error) throw e.error;
+  const works = (rows: any[]) => rows.map((r) => r.products).filter(Boolean);
+  return [
+    ...(a.data ?? []).map((r: any) => ({ ...r, kind: 'artisan' as const, text: r.bio, text_en: r.bio_en, works: works(r.product_artisans) })),
+    ...(e.data ?? []).map((r: any) => ({ ...r, kind: 'elephant' as const, text: r.description, text_en: r.description_en, works: works(r.product_elephants) })),
+  ];
+}

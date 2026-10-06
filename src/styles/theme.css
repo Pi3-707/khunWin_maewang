@@ -283,3 +283,17 @@ a.contact-card:hover .contact-arrow { transform: translateX(3px); }
 .spot-small img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; margin-bottom: 6px; }
 .spot-small strong { font: 500 17px/1.3 var(--font-head); }
 @media (prefers-reduced-motion: reduce) { .spot-main-img img, .spot-small { transition: none; } }
+
+/* Meet the makers */
+.makers { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); justify-content: center; gap: 24px; }
+.maker { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px 24px; text-align: center; }
+.maker-avatar { width: 112px; height: 112px; margin: 0 auto 14px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: rgba(134, 77, 83, .1); color: var(--rose); border: 4px solid #fff; box-shadow: var(--shadow); }
+.maker-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.maker-avatar svg { width: 46px; height: 46px; }
+.maker h3 { margin: 0 0 4px; font-size: 26px; }
+.maker-role { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--forest); margin-bottom: 10px; }
+.maker .muted { font-size: 13.5px; margin: 0 0 14px; }
+.maker-works { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 4px; }
+.maker-works .eyebrow { margin: 0 0 2px; }
+.maker-works a { color: var(--rose); font-size: 14px; font-weight: 600; text-decoration: none; }
+.maker-works a:hover { text-decoration: underline; }
