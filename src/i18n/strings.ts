@@ -32,6 +32,8 @@ export const S = {
   'cookie.decline': { th: 'ไม่ยอมรับ', en: 'Decline' },
 
   'fb.open': { th: 'เปิดเพจ Facebook', en: 'Open Facebook page' },
+  'fb.message': { th: 'ส่งข้อความ', en: 'Send message' },
+  'fb.logoAlt': { th: 'โลโก้วิสาหกิจชุมชนบ้านแม่มูตร', en: 'Ban Mae Mut community enterprise logo' },
 
   'footer.title': { th: 'สั่งซื้อตรงจากช่างฝีมือ', en: 'Order Directly from the Artisans' },
   'footer.text': { th: 'งานทุกชิ้นทำมือเป็นล็อตเล็ก ทักมาคุยกับทีมช่างในชุมชนได้โดยตรง ทั้งสั่งทำพิเศษ ขนาด และการจัดส่ง', en: 'Every piece is handmade in small batches. Message our village artisans directly about custom orders, sizes and shipping.' },

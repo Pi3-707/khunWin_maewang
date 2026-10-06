@@ -273,3 +273,18 @@ a.contact-card:hover .contact-arrow { transform: translateX(3px); }
 .qr-card { margin: 0; padding: 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; display: grid; justify-items: center; gap: 10px; }
 .qr-card figcaption { font-size: 13px; color: var(--gray); }
 @media (prefers-reduced-motion: reduce) { .contact-card, .contact-arrow { transition: none; } }
+
+/* Facebook card with cover photo and round logo */
+.fb-card { padding: 0; overflow: hidden; border-left: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow); text-align: left; }
+.fb-cover { height: 120px; background: center 30% / cover; }
+.fb-body { position: relative; padding: 0 20px 20px; }
+.fb-logo { width: 84px; height: 84px; margin-top: -42px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 6px 16px rgba(56, 43, 34, .2); background: var(--beige); object-fit: cover; }
+.fb-body .eyebrow { margin: 10px 0 2px; }
+.fb-body h3 { margin: 0 0 4px; font-size: 22px; }
+.fb-body p { margin: 0 0 6px; }
+.fb-address { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--sepia); }
+.fb-address svg { width: 16px; height: 16px; color: var(--rose); flex: none; }
+.fb-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.fb-actions .btn { min-height: 40px; }
+.site-footer .fb-card { background: #fff; border: 1px solid var(--line); }
+.site-footer .fb-card h3 { color: var(--earth); }
