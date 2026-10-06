@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LangContext';
 import { ContactButtons } from './ContactButtons';
 import { FacebookCard } from './FacebookCard';
+import { SponsorBadge } from './SponsorBadge';
 
 export function Footer() {
   const { t } = useLang();
@@ -12,6 +13,7 @@ export function Footer() {
         <p>{t('footer.text')}</p>
         <ContactButtons />
         <FacebookCard />
+        <SponsorBadge />
         <div className="footer-meta">
           <span>{t('footer.copy')} · <Link to="/our-story">{t('nav.story')}</Link> · <Link to="/visit">{t('nav.visit')}</Link></span>
           <em>{t('footer.tagline')}</em>

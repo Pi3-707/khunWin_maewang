@@ -39,6 +39,8 @@ export const S = {
   'footer.text': { th: 'งานทุกชิ้นทำมือเป็นล็อตเล็ก ทักมาคุยกับทีมช่างในชุมชนได้โดยตรง ทั้งสั่งทำพิเศษ ขนาด และการจัดส่ง', en: 'Every piece is handmade in small batches. Message our village artisans directly about custom orders, sizes and shipping.' },
   'footer.copy': { th: '© ขุนวินแม่วาง อ.แม่วาง เชียงใหม่', en: '© Khunwin Mae Wang, Mae Wang, Chiang Mai' },
   'footer.tagline': { th: 'งานมือจากวัตถุดิบธรรมชาติ', en: 'Handmade from natural materials' },
+  'sponsor.label': { th: 'สนับสนุนโดย', en: 'Supported by' },
+  'sponsor.gsb': { th: 'ธนาคารออมสิน', en: 'Government Savings Bank' },
 
   'home.title': { th: 'งานคราฟต์จากชุมชน', en: 'Community Craft' },
   'home.heroEyebrow': { th: 'ชุมชนขุนวินแม่วาง • เชียงใหม่', en: 'Khunwin Mae Wang Community • Chiang Mai' },
