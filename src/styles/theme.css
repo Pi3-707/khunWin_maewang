@@ -297,3 +297,7 @@ a.contact-card:hover .contact-arrow { transform: translateX(3px); }
 .maker-works .eyebrow { margin: 0 0 2px; }
 .maker-works a { color: var(--rose); font-size: 14px; font-weight: 600; text-decoration: none; }
 .maker-works a:hover { text-decoration: underline; }
+
+/* Whole top bar in Sarabun, Latin letters included. */
+.site-header, .site-header .brand strong, .site-header .brand small, .site-header nav a.nav-link, .lang-switch button { font-family: 'Sarabun', sans-serif; }
+.site-header .brand strong { font-weight: 600; font-size: 20px; }
