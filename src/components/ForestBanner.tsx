@@ -9,7 +9,7 @@ function useShowVideo() {
   return !reduce && !saveData;
 }
 
-// Full-width opening banner (Patagonia-style). Plays public/hero.webm or hero.mp4 when present;
+// Full-width opening banner (Patagonia-style). Plays public/hero.mp4 when present;
 // otherwise the slowly zooming photo shows through.
 export function ForestBanner() {
   const { t } = useLang();
@@ -20,8 +20,7 @@ export function ForestBanner() {
       <div className="forest-banner-photo" aria-hidden="true" />
       {showVideo && (
         <video className="forest-banner-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-          <source src="/hero.webm" type="video/webm" />
-          {/* Fires only when every source has failed: hide the video so the moving photo stays visible. */}
+          {/* Fires when the file is missing or cannot play: hide the video so the moving photo stays visible. */}
           <source src="/hero.mp4" type="video/mp4" onError={() => setVideoOk(false)} />
         </video>
       )}

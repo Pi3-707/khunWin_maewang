@@ -21,4 +21,4 @@ Full design: `docs/superpowers/specs/2026-10-05-khunwin-maewang-design.md`. Read
 - Commit and push after each build step in the spec.
 - Never commit `.env` or any key. The Supabase anon key lives in env vars only.
 - Stitch images are AI placeholders. Real community photos replace them before launch.
-- Hero video is `public/hero.mp4` and `public/hero.webm`. Keep it at 3 MB or less.
+- Hero video is `public/hero.mp4` (owner clip, 37.5 MB, index moved to the front so it streams). The requirement doc target is 3 MB or less: compress it before launch.
