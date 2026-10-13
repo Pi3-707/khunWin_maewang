@@ -41,6 +41,8 @@ export const S = {
   'footer.tagline': { th: 'งานมือจากวัตถุดิบธรรมชาติ', en: 'Handmade from natural materials' },
   'sponsor.label': { th: 'สนับสนุนโดย', en: 'Supported by' },
   'sponsor.gsb': { th: 'ธนาคารออมสิน', en: 'Government Savings Bank' },
+  'sponsor.builtBy': { th: 'พัฒนาโดยนักศึกษา', en: 'Developed by students of' },
+  'sponsor.camt': { th: 'วิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่', en: 'College of Arts, Media and Technology, Chiang Mai University' },
 
   'home.title': { th: 'งานคราฟต์จากชุมชน', en: 'Community Craft' },
   'home.heroEyebrow': { th: 'ชุมชนขุนวินแม่วาง • เชียงใหม่', en: 'Khunwin Mae Wang Community • Chiang Mai' },

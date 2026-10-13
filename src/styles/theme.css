@@ -316,6 +316,8 @@ a.contact-card:hover .contact-arrow { transform: translateX(3px); }
 
 /* Sponsor credit, bottom-right of the footer */
 .footer-meta { align-items: center; }
+.sponsors { display: inline-flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+a.sponsor { text-decoration: none; }
 .sponsor { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: #fff; border: 1px solid var(--line); border-radius: 999px; }
 .sponsor-label { font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
 .sponsor img { height: 30px; width: auto; display: block; }
