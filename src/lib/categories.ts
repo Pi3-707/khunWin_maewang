@@ -4,6 +4,7 @@ import type { Category } from './types';
 export const CATEGORY_LABEL: Record<Category, string> = {
   ecoprint: 'ผ้าพิมพ์ลายใบไม้',
   ayara: 'ผ้าย้อมสีมูลช้าง',
+  natural_dye: 'ผ้าทอสีธรรมชาติ',
   dung_pot: 'กระถางต้นไม้มูลช้าง',
   dung_sculpture: 'งานปั้นมูลช้าง',
 };
@@ -16,6 +17,7 @@ export type Filter = Category | 'dung';
 const CATEGORY_LABEL_EN: Record<Category, string> = {
   ecoprint: 'Eco-print Fabric',
   ayara: 'Elephant-Dung Dyed Fabric',
+  natural_dye: 'Natural-Dye Weaving',
   dung_pot: 'Elephant-Dung Plant Pots',
   dung_sculpture: 'Elephant-Dung Sculptures',
 };

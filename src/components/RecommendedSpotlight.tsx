@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LangContext';
 import { track } from '../lib/analytics';
 import { categoryLabel } from '../lib/categories';
-import { buildLineLink } from '../lib/contact';
+import { buildLineLink, LINE_ID } from '../lib/contact';
 import { formatPrice } from '../lib/format';
 import type { ProductListItem } from '../lib/types';
 
@@ -34,7 +34,7 @@ export function RecommendedSpotlight({ products }: { products: ProductListItem[]
               </div>
               <p className="muted">{pick(main, 'story_summary') ?? pick(main, 'description')}</p>
               <div className="spot-actions">
-                <a className="btn" href={buildLineLink(import.meta.env.VITE_LINE_OA_ID ?? '', mainName, lang)} target="_blank" rel="noopener noreferrer"
+                <a className="btn" href={buildLineLink(LINE_ID, mainName, lang)} target="_blank" rel="noopener noreferrer"
                   onClick={() => track('click_line', { product_name: main.name })}>{t('common.inquire')}</a>
                 <Link to={`/products/${main.id}`} className="link-more">{t('common.details')}</Link>
               </div>

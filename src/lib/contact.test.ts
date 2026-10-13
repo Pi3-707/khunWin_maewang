@@ -7,8 +7,8 @@ describe('contact links', () => {
     expect(url.startsWith('https://line.me/R/oaMessage/@abc/?text=')).toBe(true);
     expect(new URL(url).searchParams.get('text')).toBe('สนใจสินค้า: ตุ๊กตา & ช้าง?');
   });
-  test('LINE link adds the @ when missing', () => {
-    expect(buildLineLink('abc')).toBe('https://line.me/R/oaMessage/@abc/');
+  test('a personal LINE ID (no @) opens the add-friend page', () => {
+    expect(buildLineLink('dear_nrt2545', 'ตุ๊กตา')).toBe('https://line.me/ti/p/~dear_nrt2545');
   });
   test('blank product name is ignored', () => {
     expect(buildLineLink('@abc', '   ')).toBe('https://line.me/R/oaMessage/@abc/');

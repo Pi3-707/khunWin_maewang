@@ -7,6 +7,7 @@ describe('categories', () => {
     expect(categoryLabel('ayara')).toBe('ผ้าย้อมสีมูลช้าง');
     expect(categoryLabel('dung_pot')).toBe('กระถางต้นไม้มูลช้าง');
     expect(categoryLabel('dung_sculpture')).toBe('งานปั้นมูลช้าง');
+    expect(categoryLabel('natural_dye')).toBe('ผ้าทอสีธรรมชาติ');
   });
 
   test('the dung group expands to its three categories', () => {
@@ -18,6 +19,7 @@ describe('categories', () => {
   test('unknown URL values mean no filter', () => {
     expect(parseFilter('dung')).toBe('dung');
     expect(parseFilter('dung_pot')).toBe('dung_pot');
+    expect(parseFilter('natural_dye')).toBe('natural_dye');
     expect(parseFilter('bogus')).toBeUndefined();
     expect(parseFilter(null)).toBeUndefined();
   });
@@ -28,4 +30,5 @@ test('English category labels', () => {
   expect(categoryLabel('ayara', 'en')).toBe('Elephant-Dung Dyed Fabric');
   expect(categoryLabel('dung_pot', 'en')).toBe('Elephant-Dung Plant Pots');
   expect(categoryLabel('dung_sculpture', 'en')).toBe('Elephant-Dung Sculptures');
+  expect(categoryLabel('natural_dye', 'en')).toBe('Natural-Dye Weaving');
 });

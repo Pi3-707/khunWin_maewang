@@ -7,7 +7,7 @@ import { fetchProducts } from '../lib/queries';
 import { useAsync } from '../lib/useAsync';
 import { usePageTitle } from '../lib/usePageTitle';
 
-const TOP: [Filter | '', StringKey][] = [['', 'filter.all'], ['ecoprint', 'filter.ecoprint'], ['dung', 'filter.dung']];
+const TOP: [Filter | '', StringKey][] = [['', 'filter.all'], ['ecoprint', 'filter.ecoprint'], ['natural_dye', 'filter.natural_dye'], ['dung', 'filter.dung']];
 
 export default function Products() {
   const { lang, t } = useLang();

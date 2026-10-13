@@ -1,10 +1,7 @@
-import { buildLineLink, buildMessengerLink, buildTelLink } from '../lib/contact';
+import { buildLineLink, buildMessengerLink, buildTelLink, FB_PAGE as FB, LINE_ID as LINE, PHONE } from '../lib/contact';
 import { track } from '../lib/analytics';
 import { useLang } from '../i18n/LangContext';
 
-const LINE = import.meta.env.VITE_LINE_OA_ID ?? '';
-const FB = import.meta.env.VITE_FB_PAGE ?? '';
-const PHONE = import.meta.env.VITE_PHONE ?? '';
 
 export function ContactButtons({ productName }: { productName?: string }) {
   const { lang, t } = useLang();
