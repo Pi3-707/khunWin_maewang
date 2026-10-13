@@ -4,6 +4,9 @@ import { fetchMakers } from '../lib/queries';
 import { useAsync } from '../lib/useAsync';
 import { ElephantIcon, WeaverIcon } from './Icons';
 
+// Long work lists are cut short so one prolific maker doesn't stretch the whole section.
+const MAX_WORKS = 4;
+
 // Profile cards for the artisans and elephants behind the products, linked to what they made.
 export function MeetTheMakers() {
   const { t, pick } = useLang();
@@ -35,7 +38,10 @@ export function MeetTheMakers() {
                 {m.works.length > 0 && (
                   <div className="maker-works">
                     <span className="eyebrow">{t('makers.works')}</span>
-                    {m.works.map((w) => <Link key={w.id} to={`/products/${w.id}`}>{pick(w, 'name')}</Link>)}
+                    {m.works.slice(0, MAX_WORKS).map((w) => <Link key={w.id} to={`/products/${w.id}`}>{pick(w, 'name')}</Link>)}
+                    {m.works.length > MAX_WORKS && (
+                      <Link to={m.kind === 'elephant' ? '/products?category=dung' : '/products'}>{t('makers.more').replace('{n}', String(m.works.length - MAX_WORKS))}</Link>
+                    )}
                   </div>
                 )}
               </article>

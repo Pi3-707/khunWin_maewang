@@ -66,8 +66,6 @@ img, video { max-width: 100%; display: block; }
 .hero p { color: var(--sepia); max-width: 420px; margin: 0 0 22px; }
 .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber); }
 .hero-tag::after { content: ''; width: 36px; height: 1px; background: var(--amber); }
-.hero-media { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow); background: url('/stitch/hero.jpg') center / cover, var(--card); }
-.hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
 @media (min-width: 800px) { .hero-inner { grid-template-columns: 1fr 1.15fr; padding: 64px 24px 72px; } }
 
@@ -215,7 +213,7 @@ main, .site-footer { position: relative; z-index: 1; }
 
 /* Full-width forest banner */
 .forest-banner { position: relative; overflow: hidden; min-height: 78vh; display: flex; align-items: flex-end; color: #fff; background: #2d342e; }
-.forest-banner-photo { position: absolute; inset: 0; background: url('/stitch/elephant-wide.jpg') center 40% / cover; animation: banner-drift 24s ease-in-out infinite alternate; }
+.forest-banner-photo { position: absolute; inset: 0; background: url('/photos/shop-display.jpg') center 40% / cover; animation: banner-drift 24s ease-in-out infinite alternate; }
 .forest-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 16, 12, .78) 0%, rgba(20, 16, 12, .35) 45%, rgba(20, 16, 12, .05) 75%); }
 @keyframes banner-drift { from { transform: scale(1); } to { transform: scale(1.08) translateX(-1.5%); } }
 .forest-banner-inner { position: relative; z-index: 1; padding-top: 0; padding-bottom: 56px; }

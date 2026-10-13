@@ -20,5 +20,5 @@ Full design: `docs/superpowers/specs/2026-10-05-khunwin-maewang-design.md`. Read
 - Product availability is `ready` or `made_to_order`, never a count.
 - Commit and push after each build step in the spec.
 - Never commit `.env` or any key. The Supabase anon key lives in env vars only.
-- Stitch images are AI placeholders. Real community photos replace them before launch.
+- Photos are real community photos: products in `public/products/` (P###-n.jpg), page photos in `public/photos/`. Products without a photo show `public/placeholder.svg`.
 - Hero video is `public/hero.mp4` (owner clip, 37.5 MB, index moved to the front so it streams). The requirement doc target is 3 MB or less: compress it before launch.

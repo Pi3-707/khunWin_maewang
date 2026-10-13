@@ -34,7 +34,7 @@ export default function Home() {
       <section className="band band-paper">
         <div className="container story-split">
           <div className="story-photo reveal">
-            <img src="/stitch/fabric.jpg" alt={t('home.storyPhotoAlt')} loading="lazy" />
+            <img src="/photos/shop-mannequins.jpg" alt={t('home.storyPhotoAlt')} loading="lazy" />
             <span>{t('home.studio')}</span>
           </div>
           <div className="story-card reveal">
@@ -61,7 +61,7 @@ export default function Home() {
                 <div key={m.id} className="callout"><strong>{pick(m, 'name')}</strong><span>{matType(m.type)}</span></div>
               ))}
             </div>
-            <div className="cycle-photo"><img src="/stitch/pots.jpg" alt="" loading="lazy" /></div>
+            <div className="cycle-photo"><img src="/photos/dung-pots.jpg" alt="" loading="lazy" /></div>
             <div className="callouts right">
               {steps.map((s, i) => (
                 <div key={s.id} className="callout"><strong>{`0${i + 1}`} {pick(s, 'name')}</strong><span>{short(pick(s, 'description'))}</span></div>
