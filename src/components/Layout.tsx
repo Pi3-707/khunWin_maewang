@@ -25,7 +25,7 @@ export function Layout() {
       <header className="site-header">
         <nav>
           <Link to="/" className="brand">
-            <img src="/fb/logo.png" alt="" width={38} height={38} />
+            <img src="/emblem.jpg" alt="" width={38} height={38} />
             <span><strong>{t('site.name')}</strong><small>{t('site.tagline')}</small></span>
           </Link>
           {links.map(([to, key]) => (
