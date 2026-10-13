@@ -13,10 +13,10 @@ from (values ('P003',2),('P006',2),('P008',2),('P010',2),('P013',2),
 join products p on p.product_code = v.code;
 commit;
 
--- Photos for the home page "From Forest to Handcraft" cycle (first three materials and steps).
+-- Photos for the home page "From Forest to Handcraft" cycle. Step photos are frames from the team's story video (Clip story maewang).
 update materials set image_url = '/products/P019-1.jpg' where id = '00000000-0000-0000-0000-000000000101';
 update materials set image_url = '/products/P008-1.jpg' where id = '00000000-0000-0000-0000-000000000102';
 update materials set image_url = '/products/P006-1.jpg' where id = '00000000-0000-0000-0000-000000000103';
-update processes set image_url = '/photos/dung-pots.jpg' where id = '00000000-0000-0000-0000-000000000201';
-update processes set image_url = '/products/P017-1.jpg' where id = '00000000-0000-0000-0000-000000000202';
-update processes set image_url = '/products/P012-1.jpg' where id = '00000000-0000-0000-0000-000000000203';
+update processes set image_url = '/photos/step-collect.jpg' where id = '00000000-0000-0000-0000-000000000201';
+update processes set image_url = '/photos/step-boil.jpg' where id = '00000000-0000-0000-0000-000000000202';
+update processes set image_url = '/photos/step-dye.jpg' where id = '00000000-0000-0000-0000-000000000203';
