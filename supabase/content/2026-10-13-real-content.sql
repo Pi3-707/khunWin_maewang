@@ -220,7 +220,7 @@ select id, '00000000-0000-0000-0000-000000000501' from products;
 
 -- Visit page
 insert into visit_info (kind, title, title_en, body, body_en, display_order) values
-('map', 'แผนที่', 'Map', 'MM93+PH Maewin elephant park, Mae Win, Mae Wang District, Chiang Mai 50360', 'MM93+PH Maewin elephant park, Mae Win, Mae Wang District, Chiang Mai 50360', 1),
+('map', 'แผนที่', 'Map', '18.6695392,98.6539549', '18.6695392,98.6539549', 1),
 ('direction', 'ที่อยู่', 'Address', 'วิสาหกิจชุมชนสตรีบ้านแม่มูต หมู่ที่ 6 ต.แม่วิน อ.แม่วาง จ.เชียงใหม่', 'Ban Mae Mut Women''s Community Enterprise, Moo 6, Mae Win, Mae Wang, Chiang Mai', 1),
 ('direction', 'ร้านค้าชุมชน', 'Community shop', 'ร้านค้าชุมชนข่วงแม่วิน ศูนย์เรียนรู้และร้านผลิตภัณฑ์ OTOP (สนับสนุนพื้นที่โดย อบต.แม่วิน)', 'Khuang Mae Win Community Shop, our learning centre and OTOP store (space supported by Mae Win SAO)', 2),
 ('activity', 'Workshop ผ้า eco-print', 'Eco-print workshop', 'จัดวางใบไม้และพิมพ์ลายผ้าด้วยมือตัวเอง', 'Arrange the leaves and print your own cloth by hand.', 1),
