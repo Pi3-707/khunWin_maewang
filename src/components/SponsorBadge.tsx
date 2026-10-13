@@ -18,7 +18,6 @@ export function SponsorBadge() {
         )}
       </span>
       <a className="sponsor" href="https://www.camt.cmu.ac.th/" target="_blank" rel="noopener noreferrer">
-        <span className="sponsor-label">{t('sponsor.builtBy')}</span>
         <img src="/sponsors/camt.svg" alt={t('sponsor.camt')} height={30} />
       </a>
     </span>
