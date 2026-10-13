@@ -1,15 +1,18 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LangContext';
 import { track } from '../lib/analytics';
 import { categoryLabel } from '../lib/categories';
 import { buildLineLink, LINE_ID } from '../lib/contact';
 import { formatPrice } from '../lib/format';
+import { pickRecommended } from '../lib/recommend';
 import type { ProductListItem } from '../lib/types';
 
 // One large highlighted product next to a 2x2 block of smaller ones.
 export function RecommendedSpotlight({ products }: { products: ProductListItem[] }) {
   const { lang, t, pick } = useLang();
-  const items = products.filter((p) => p.cover_image_url).slice(0, 5);
+  // Picked once per visit so switching language doesn't reshuffle the row.
+  const items = useMemo(() => pickRecommended(products), [products]);
   if (!items.length) return null;
   const [main, ...rest] = items;
   const mainName = pick(main, 'name') ?? main.name;

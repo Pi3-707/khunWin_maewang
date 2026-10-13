@@ -115,7 +115,7 @@ img, video { max-width: 100%; display: block; }
 .cycle-caption { min-height: 4.6em; max-width: 300px; margin: 0; text-align: center; font-size: 13px; line-height: 1.55; color: var(--sepia); }
 .cycle-caption strong { display: block; font-size: 14px; color: var(--earth); margin-bottom: 2px; }
 .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
-.callout { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; text-align: left; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; cursor: pointer; transition: transform .25s, box-shadow .25s, border-color .25s, background .25s; }
+.callout { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 16px; cursor: pointer; transition: transform .25s, box-shadow .25s, border-color .25s, background .25s; }
 .callout:hover, .callout:focus-visible, .callout.is-active { transform: translateY(-3px); border-color: var(--amber); background: #fff; box-shadow: var(--shadow); outline: none; }
 .callout-mark { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--beige); color: var(--forest); font-size: 12px; font-weight: 700; transition: background .25s, color .25s; }
 .callout-mark svg { width: 18px; height: 18px; }

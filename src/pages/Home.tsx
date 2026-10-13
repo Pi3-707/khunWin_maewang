@@ -23,6 +23,17 @@ export default function Home() {
 
       {products.error && <div className="container"><p className="error">{t('common.loadError')}</p></div>}
 
+      <section className="band band-paper">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{t('home.cycleEyebrow')}</span>
+            <h2>{t('home.cycleTitle')}</h2>
+          </div>
+          {story.error && <p className="error">{t('common.loadError')}</p>}
+          <CycleDiagram materials={materials} steps={steps} />
+        </div>
+      </section>
+
       <MeetTheMakers />
 
       <section className="band band-paper">
@@ -39,17 +50,6 @@ export default function Home() {
             </div>
             <div className="story-foot"><span>{t('home.storyFoot1')}</span><strong>{t('home.storyFoot2')}</strong></div>
           </div>
-        </div>
-      </section>
-
-      <section className="band band-white">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">{t('home.cycleEyebrow')}</span>
-            <h2>{t('home.cycleTitle')}</h2>
-          </div>
-          {story.error && <p className="error">{t('common.loadError')}</p>}
-          <CycleDiagram materials={materials} steps={steps} />
         </div>
       </section>
     </>
