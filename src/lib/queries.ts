@@ -48,8 +48,8 @@ export async function fetchProduct(by: { id: string } | { qr: string }): Promise
 
 export async function fetchHomeStory(): Promise<{ processes: Process[]; materials: Material[] }> {
   const [p, m] = await Promise.all([
-    supabase.from('processes').select('*').limit(6),
-    supabase.from('materials').select('*').limit(4),
+    supabase.from('processes').select('*').order('id').limit(6),
+    supabase.from('materials').select('*').order('id').limit(4),
   ]);
   if (p.error) throw p.error;
   if (m.error) throw m.error;

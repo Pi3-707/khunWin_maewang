@@ -58,6 +58,7 @@ export const S = {
   'home.storyFoot2': { th: 'ไม่ตัดไม้ทำลายป่า', en: 'Zero deforestation' },
   'home.cycleEyebrow': { th: 'วงจรของวัตถุดิบธรรมชาติ', en: 'The Cycle of Natural Materials' },
   'home.cycleTitle': { th: 'จากป่า สู่งานมือ', en: 'From Forest to Handcraft' },
+  'home.cycleHint': { th: 'ชี้หรือแตะวัตถุดิบและขั้นตอน เพื่อดูเรื่องราวของแต่ละชิ้น', en: 'Point at or tap a material or step to see its story.' },
   'mat.natural_material': { th: 'วัตถุดิบธรรมชาติ', en: 'Natural material' },
   'mat.textile': { th: 'ผ้าทอ', en: 'Woven textile' },
   'featured.label': { th: 'แนะนำสำหรับคุณ', en: 'Recommended for You' },
