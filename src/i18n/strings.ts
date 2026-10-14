@@ -131,6 +131,7 @@ export const S = {
   'visit.map': { th: 'แผนที่', en: 'Map' },
   'visit.mapTitle': { th: 'แผนที่ชุมชน', en: 'Community map' },
   'visit.openMap': { th: 'เปิดใน Google Maps', en: 'Open in Google Maps' },
+  'visit.interactiveMap': { th: 'แผนที่อินเทอร์แอคทีฟ', en: 'Interactive Map' },
   'visit.direction': { th: 'วิธีเดินทาง', en: 'Getting Here' },
   'visit.activity': { th: 'กิจกรรมและเวิร์กชอป', en: 'Activities & Workshops' },
   'visit.hours': { th: 'ช่วงเวลาที่เปิด', en: 'Opening Hours' },

@@ -29,7 +29,9 @@ export default function Visit() {
           <p>
             <a className="btn btn-ghost" target="_blank" rel="noopener noreferrer"
               href={`https://www.google.com/maps/search/?api=1&query=${q}`}
-              onClick={() => track('open_map')}>{t('visit.openMap')}</a>
+              onClick={() => track('open_map')}>{t('visit.openMap')}</a>{' '}
+            <a className="btn" target="_blank" rel="noopener noreferrer" href="/interactive-map.html"
+              onClick={() => track('open_interactive_map')}>{t('visit.interactiveMap')}</a>
           </p>
         </section>
       )}
