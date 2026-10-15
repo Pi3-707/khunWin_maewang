@@ -21,4 +21,4 @@ Full design: `docs/superpowers/specs/2026-10-05-khunwin-maewang-design.md`. Read
 - Commit and push after each build step in the spec.
 - Never commit `.env` or any key. The Supabase anon key lives in env vars only.
 - Header logo is `public/emblem.jpg` (kept at the owner's request). Photos are real community photos: products in `public/products/` (P###-n.jpg), page photos in `public/photos/`. Products without a photo show `public/placeholder.svg`.
-- Hero video is `public/hero.mp4` (owner clip, 37.5 MB, index moved to the front so it streams). The requirement doc target is 3 MB or less: compress it before launch.
+- Hero video is `public/hero.mp4`: a 25 s silent loop (720p, 2.7 MB) cut from the owner's story clip (Drive file 1Xf_WcN904pE5hz2gLn15i0LUHvrgSyTd), which also plays on Our Story. Story and process photos are frames from that clip. P014–P016 photos are AI mockups until real photos arrive.
