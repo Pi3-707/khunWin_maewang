@@ -4,7 +4,7 @@ import type { StringKey } from '../i18n/strings';
 import { usePageTitle } from '../lib/usePageTitle';
 
 // Google Drive file shared as "anyone with the link"; the /preview URL is the embeddable player.
-const STORY_VIDEO = 'https://drive.google.com/file/d/1MqfeHWtN68PjJKCKotYhJTmsqatrOTot/preview';
+const STORY_VIDEO = 'https://drive.google.com/file/d/1Xf_WcN904pE5hz2gLn15i0LUHvrgSyTd/preview';
 // Chapters 1–6 use stills from the story video; chapter 7 is the real shop.
 const CHAPTERS = [1, 2, 3, 4, 5, 6, 7].map((n) => ({
   n, head: `story.s${n}h` as StringKey, body: `story.s${n}b` as StringKey, photo: `/photos/story-${n}.jpg`,
